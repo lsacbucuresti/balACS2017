@@ -1,0 +1,4 @@
+<div> {{ currUser.firebaseUser?.uid }} </div>
+<button (click)="login()" [hidden]="currUser.isLogged">Login</button>
+<button (click)="logout()" [hidden]="!currUser.isLogged">Logout</button>
+{{ currUser.isLogged }}
