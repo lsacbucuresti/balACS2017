@@ -1,3 +1,6 @@
+# balACS2017
+Angular + Firebase WebApp
+
 # AplicatieBal
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.1.
