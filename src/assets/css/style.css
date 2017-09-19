@@ -1,0 +1,391 @@
+/* Custom Stylesheet */
+
+
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600|Raleway:300,400,500');
+.background-descriere {
+  background: url(../images/bg-deschis.png) 50% 100% repeat-x, url(../images/bg-deschis-top.png) 50% repeat;
+  margin-top: -20px;
+}
+
+.background-gradient {
+  background: url(../images/bg-gradient.png) repeat-x, url(../images/bg-inchis.png) repeat, url(../images/triunghi.png) 0% 0% repeat;
+}
+
+.margin-left-100 {
+  margin-left: 80px;
+}
+
+.margin-top-30 {
+  margin-top: 30px;
+}
+
+.margin-top-150 {
+  margin-top: 150px;
+}
+
+.card-padding {
+  margin-top: 20px;
+  color: #0b3c49;
+  font-family: "Raleway";
+}
+
+.background-all {
+  background: #f1ffe7;
+}
+
+.card-title-color-event {
+  color: #f0e100;
+  font-family: "Raleway";
+  font-weight: 500 !important;
+}
+
+.card-title-color-communicate {
+  color: #48bf84;
+  font-family: "Raleway";
+  font-weight: 500 !important;
+}
+
+.header {
+  width: 100%;
+  text-align: left;
+  border-bottom: 3px solid;
+  line-height: 0.1em;
+  margin: 10px 0 35px;
+}
+
+.header span {
+  background: #f1ffe7;
+  padding: 0 10px;
+  color: #0b3c49;
+  font-family: "Raleway";
+  padding-right: 10px;
+}
+
+.header-phone {
+  border-color: #00796b;
+}
+
+.header-communicate {
+  border-color: #48bf84;
+}
+
+.header-event {
+  border-color: #f0e100;
+}
+
+.phone-button {
+  color: #f1ffe7;
+  background: #0b3c49;
+  border-color: #000;
+}
+
+.icon-phone {
+  padding: 30px;
+  border-radius: 50%;
+  vertical-align: middle;
+  background-color: white;
+  border-style: solid;
+  border-color: #e0e0e0;
+  color: #e0e0e0;
+  cursor: default;
+}
+
+.card-panel:hover .icon-phone {
+  border-style: solid;
+  border-color: #76ff03;
+  color: #76ff03;
+}
+
+.black-border-color {
+  border-color: solid black;
+}
+
+.icon-block {
+  padding: 0 15px;
+  margin-bottom: 5vh;
+  margin-top: -5vh;
+}
+
+.icon-block .material-icons {
+  font-size: 5vh;
+}
+
+.top-banner {
+  background: url('../images/background.png') 50% 50%;
+  background-size: cover;
+  font-family: Raleway;
+}
+
+.transparent-grey {
+  background-color: rgba(160, 160, 160, 0.4);
+}
+
+.transparent-grey a {}
+
+.transparent-grey a img {
+  content: url('../images/LogoLSAC - alb.png')
+}
+
+.dark-text {
+  color: rgba(52, 52, 52, 0.8);
+}
+
+.dark-green-text {
+  color: #314f51;
+}
+
+.white-black-text {
+  background-color: rgba(52, 52, 52, 0.8);
+  color: #FFFFFF !important;
+}
+
+.white-black-text a {
+  color: #FFFFFF !important;
+}
+
+.white-black-text a>img {
+  content: url('../images/LogoLSAC - alb.png')
+}
+
+.logo-lsac-top {
+  height: 35px;
+  margin-top: 2vh;
+  width: auto;
+}
+
+.raleway-text {
+  font-weight: 100;
+  text-align: justify;
+  font-family: 'Raleway', sans-serif;
+}
+
+.open-sans-text {
+  font-weight: 100;
+  text-align: justify;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.open-sans-text b {
+  font-weight: 900;
+  text-shadow: 0px 0px 10px black;
+}
+
+.raleway-text b {
+  font-weight: 900;
+  text-shadow: 0px 0px 10px black;
+}
+
+.text-normal {
+  font-size: 16px;
+}
+
+.text-shadow {
+  text-shadow: 0 8px 10px rgba(0, 0, 0, 0.14), 0 3px 14px rgba(0, 0, 0, 0.12), 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.probe {
+  background-color: rgba(175, 188, 182, 0.22);
+}
+
+.probe:hover {
+  background-color: rgba(175, 188, 182, 0.22);
+}
+
+.center-justified {
+  text-align: justify;
+  -moz-text-align-last: center;
+  text-align-last: center;
+}
+
+.title {
+  text-align: center !important;
+  margin-top: 50px;
+}
+
+#nav {
+  transition: all .2s;
+}
+
+.footer {
+  position: relative;
+  padding: 10px;
+  color: white;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .4;
+  z-index: -1;
+  background: black;
+}
+
+.img-banner {
+  height: 7rem;
+  margin-bottom: 10px;
+}
+
+.img-logo {
+  width: 100%;
+}
+
+body, html {
+  height: 100vh;
+}
+
+#index-banner {}
+
+.v-center {
+  display: block !important;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.full-page {
+  height: auto;
+  min-height: 100vh;
+}
+
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.zindex-0 {
+  z-index: 0;
+}
+
+.zindex-1 {
+  z-index: 1;
+}
+
+.margin-top-30 {
+  margin-top: 30px !important;
+}
+
+.parallax {
+  height: 100vh;
+}
+
+.page-header-bottom-box {
+  height: 200px;
+  width: 300%;
+  position: absolute;
+  background-color: red;
+  bottom: 0;
+}
+
+#index-banner ul {
+  margin: 0.75em 0;
+  padding: 0 1em;
+  list-style: none;
+}
+
+#index-banner li:before {
+  content: "";
+  border-color: transparent #242424;
+  border-style: solid;
+  border-width: 0.35em 0 0.35em 0.45em;
+  display: block;
+  height: 0;
+  width: 0;
+  left: -1em;
+  top: 0.9em;
+  position: relative;
+}
+
+.nav-no-scroll {
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: none;
+}
+
+.nav-no-scroll a {
+  color: #242424;
+}
+
+.nav-scroll {
+  background-color: #fbfbfb !important;
+}
+
+.nav-scroll a {
+  color: #0c3c4a;
+}
+
+.nav-scroll a:hover {
+  background-color: #0c3c4a;
+  color: #fbfbfb;
+}
+
+.teal-green {
+  background-color: #48bf84;
+}
+
+.blue-transparent {
+  background-color: rgba(8, 126, 139, 0.8);
+}
+
+.greyish-text {
+  color: #242424;
+}
+
+.side-nav-container {
+  background-color: #0c3c4a;
+  color: #f1ffe8;
+}
+
+.side-nav-menu-category {
+  font-weight: bold;
+}
+
+.side-nav-menu-item {
+  font-weight: normal;
+  padding:3px;
+  padding-left:30px;
+}
+
+  .collapsible-panel {
+    border-color: #004d66;
+    background-color: #004d66;
+    color: #f1ffe7;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 12px 12px;
+  }
+
+
+.collapsible-mayor {
+  margin-left: 20px;
+}
+
+.collapsible-leadership{
+    background-color: #00394d;
+
+}
+
+#footer {
+  position: relative;
+  padding: 0;
+}
+
+.footer-items-container {
+  padding-top: 10em;
+  background: url('../images/footer-bg.png') no-repeat;
+  background-position: left;
+  margin: 0;
+}
+
+.red {
+  background-color : red;
+}
