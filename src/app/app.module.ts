@@ -15,9 +15,9 @@ import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { TinderProfilingComponent } from './meeting/profiling.component';
 import { TomboleComponent } from './tombole/tombole.component';
+import { VotesComponent } from './vote/vote.component';
 import { AuthGuard } from './authGuard.service';
 import { AccountService } from './account.service';
-import { CurrentUser } from './datatypes';
 
 const appRoutes: Routes = [
   // { path: 'crisis-center', component: CrisisListComponent },
@@ -37,7 +37,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'vote',
-    component: LoginComponent,
+    component: VotesComponent,
     canActivate: [AuthGuard],
   },
   {
@@ -67,6 +67,7 @@ const appRoutes: Routes = [
     LandingComponent,
     TinderProfilingComponent,
     TomboleComponent,
+    VotesComponent,
   ],
   imports: [
     BrowserModule,

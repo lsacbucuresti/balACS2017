@@ -1,10 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+
+import { Person } from '../datatypes';
 
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.css']
+  selector: 'app-vote',
+  templateUrl: './vote.component.html',
+  styleUrls: ['./vote.component.css']
 })
-export class LandingComponent {
-  title = 'app';
+export class VotesComponent implements OnInit {
+  concurente: Person[];
+  constructor(public afAuth: AngularFireAuth, private afDb: AngularFireDatabase) { }
+  ngOnInit(): void {
+    let participants: FirebaseListObservable<any>;
+    participants = this.afDb.list('votes');
+
+    participants.subscribe(userData => {
+      this.concurente = userData;
+    });
+    // participants.push('asdasd');
+  }
+
 }

@@ -1,1 +1,4 @@
-Bun venit la aplicatie! Avem un tinder, avem votul publicului si avem tombole.
+Persoane:
+<div *ngFor="let x of concurente">
+    {{ x.voted_by + ' ' + x.voted_for }}
+</div>

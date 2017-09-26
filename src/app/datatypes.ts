@@ -9,6 +9,12 @@ export class Tombola {
     media: any;
 }
 
+export class Person {
+    display_name: string;
+    description: string;
+    profile_picture: string;
+}
+
 export class CurrentUser {
     isLogged: boolean;
     firebaseAuthState: Observable<firebase.User>;
