@@ -3,10 +3,11 @@ import * as firebase from 'firebase/app';
 import { FirebaseObjectObservable } from 'angularfire2/database';
 
 export class Tombola {
-    nume: string;
-    fields: string[];
-    descriere: string;
-    media: any;
+    identification: string;
+    display_name: string;
+    media_type: string;
+    media_url: string;
+    required_fields: string[];
 }
 
 export class Person {

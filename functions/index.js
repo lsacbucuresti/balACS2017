@@ -4,13 +4,30 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
-exports.countVotes = functions.database.ref('/votes/{voted}').onWrite(event => {
-  const voted = event.data.key;
-  const voter = event.data.val();
+exports.countGirlVotes = functions.database.ref('/girlVotes/{voted}').onWrite(event => {
+  const voted = event.data.val()['to'];
+  const voter = event.data.val()['from'];
 
-  console.log(voter);
-  console.log(voted);
-  
+  var nodVoturi = event.data.adminRef.parent.root.child('girlTotalVotes/total_' + voted);
+  return nodVoturi.transaction(count => {
+    if (count === null) {
+      return count = 1
+    } else {
+      return count + 1
+    }
+  })
+});
 
-  return event.data.ref.parent.root.child('total_' + voted).set("sasdasdas");
+exports.countBoyVotes = functions.database.ref('/boyVotes/{voted}').onWrite(event => {
+  const voted = event.data.val()['to'];
+  const voter = event.data.val()['from'];
+
+  var nodVoturi = event.data.adminRef.parent.root.child('boyTotalVotes/total_' + voted);
+  return nodVoturi.transaction(count => {
+    if (count === null) {
+      return count = 1
+    } else {
+      return count + 1
+    }
+  })
 });

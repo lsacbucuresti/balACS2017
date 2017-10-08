@@ -1,3 +1,4 @@
+import { AccountService } from '../account.service';
 import { Component } from '@angular/core';
 import { Tombola } from '../datatypes';
 import { AngularFireModule } from 'angularfire2';
@@ -9,12 +10,14 @@ import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/databa
   styleUrls: ['./tombole.component.css']
 })
 export class TomboleComponent {
-  items: FirebaseListObservable<any>;
-  constructor(public af: AngularFireDatabase) {
-    this.items = af.list('/tombole', {
-      query: {
-        limitToLast: 5
-      }
+  tombole: Tombola[];
+  constructor(public af: AngularFireDatabase, public accService: AccountService) {
+    let tombole = af.list('/tombole').map(tombole => {
+      tombole.map(tombola => tombola.identification = tombola.$key);
+      console.log(tombole);
+      return tombole;
+    }).subscribe(a => {
+      this.tombole = a;
     });
   }
 }

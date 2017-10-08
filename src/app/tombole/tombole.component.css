@@ -1,0 +1,3 @@
+.registered:nth-child() {
+    background-color: red !important;
+}

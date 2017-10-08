@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { InscriereTombolaComponent } from './tombole/tombola.inscriere.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -16,6 +18,7 @@ import { LandingComponent } from './landing/landing.component';
 import { TinderProfilingComponent } from './meeting/profiling.component';
 import { TomboleComponent } from './tombole/tombole.component';
 import { VotesComponent } from './vote/vote.component';
+import { TombolaComponent } from './tombole/tombola.component';
 import { AuthGuard } from './authGuard.service';
 import { AccountService } from './account.service';
 
@@ -46,6 +49,11 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'tombola/:id',
+    component: InscriereTombolaComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'user',
     component: UserComponent,
     canActivate: [AuthGuard],
@@ -68,10 +76,13 @@ const appRoutes: Routes = [
     TinderProfilingComponent,
     TomboleComponent,
     VotesComponent,
+    TombolaComponent,
+    InscriereTombolaComponent,
   ],
   imports: [
     BrowserModule,
     MaterializeModule,
+    FormsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only

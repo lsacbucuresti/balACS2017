@@ -1,4 +1,6 @@
 Persoane:
-<div *ngFor="let x of concurente">
-    {{ x.voted_by + ' ' + x.voted_for }}
+<div *ngFor="let x of concurente; let i = index;">
+    <button class="btn" (click)="vote(i)">{{ x.display_name }}</button>
 </div>
+<!-- 
+{{ user.AppUser['display_name'] }} -->

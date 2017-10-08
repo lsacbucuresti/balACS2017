@@ -1,1 +1,6 @@
-Bun venit la aplicatie! Avem un tinder, avem votul publicului si avem tombole.
+
+    <div class="row" *ngFor="let tombola of tombole">
+        <a href="tombola/{{tombola.identification}}">
+            <app-component-tombola [tombolaInfo]="tombola"></app-component-tombola>
+        </a>
+    </div>
