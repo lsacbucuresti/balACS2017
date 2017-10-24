@@ -1,4 +1,4 @@
-import { AccountService } from '../account.service';
+import { AccountService } from '../services/account.service';
 import { Component } from '@angular/core';
 import { Tombola } from '../datatypes';
 import { AngularFireModule } from 'angularfire2';

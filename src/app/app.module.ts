@@ -1,3 +1,5 @@
+import { ChatComponent } from './meeting/chat/chat.component';
+import { MatchesComponent } from './meeting/matching/matches.component';
 import { FormsModule } from '@angular/forms';
 import { InscriereTombolaComponent } from './tombole/tombola.inscriere.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,11 +22,10 @@ import { TomboleComponent } from './tombole/tombole.component';
 import { VotesComponent } from './vote/vote.component';
 import { TombolaComponent } from './tombole/tombola.component';
 import { AuthGuard } from './authGuard.service';
-import { AccountService } from './account.service';
+import { AccountService } from './services/account.service';
+import { QuestionsComponent } from './meeting/questions.component';
 
 const appRoutes: Routes = [
-  // { path: 'crisis-center', component: CrisisListComponent },
-  // { path: 'hero/:id',      component: HeroDetailComponent },
   {
     path: 'home',
     component: LandingComponent,
@@ -35,7 +36,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'meeting',
-    component: LoginComponent,
+    component: QuestionsComponent,
     canActivate: [AuthGuard],
   },
   {
@@ -59,6 +60,16 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'matches',
+    component: MatchesComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'chat/:id',
+    component: ChatComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -78,6 +89,9 @@ const appRoutes: Routes = [
     VotesComponent,
     TombolaComponent,
     InscriereTombolaComponent,
+    QuestionsComponent,
+    MatchesComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,7 +107,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     AuthGuard,
-    AccountService
+    AccountService,
   ],
   bootstrap: [AppComponent]
 })

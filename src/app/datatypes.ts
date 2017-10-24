@@ -22,3 +22,14 @@ export class CurrentUser {
     firebaseUser: firebase.User;
     AppUser: FirebaseObjectObservable<any>;
 }
+
+export class Message {
+    text: String;
+    sender: String;
+}
+
+export class Conversation {
+    from: String;
+    to: String;
+    lastMessage: String;
+}

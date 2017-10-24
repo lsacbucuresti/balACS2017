@@ -5,7 +5,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 
 import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
-import { AccountService } from '../account.service';
+import { AccountService } from '../services/account.service';
 import { CurrentUser } from '../datatypes';
 
 @Component({

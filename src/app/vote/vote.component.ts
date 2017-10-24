@@ -1,4 +1,4 @@
-import { AccountService } from '../account.service';
+import { AccountService } from '../services/account.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';

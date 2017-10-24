@@ -1,7 +1,7 @@
 import { NgForm } from '@angular/forms/src/directives';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tombola } from '../datatypes';
-import { AccountService } from '../account.service';
+import { AccountService } from '../services/account.service';
 import { Component, Input } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 

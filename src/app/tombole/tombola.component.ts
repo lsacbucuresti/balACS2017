@@ -1,4 +1,4 @@
-import { AccountService } from '../account.service';
+import { AccountService } from '../services/account.service';
 import { Tombola } from '../datatypes';
 import { Component, Input } from '@angular/core';
 

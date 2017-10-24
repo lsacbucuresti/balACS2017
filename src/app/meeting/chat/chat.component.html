@@ -1,0 +1,12 @@
+<div class="flow-text">CHATTING WITH {{otherPerson['display_name']}}</div>
+<form #textForm="ngForm" (ngSubmit)="sendMessage(textForm)">
+    <input type="text" name="message" ngModel>
+    <input type="submit" class="btn" name="submit" value="Send!">
+</form>
+
+<ul style="height:90vh; width: 100vw; overflow-y:scroll;">
+    <li *ngFor="let msg of messages">
+        {{msg.sender}} | {{msg.text}}
+    </li>
+</ul>
+

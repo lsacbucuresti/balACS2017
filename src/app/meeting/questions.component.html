@@ -1,0 +1,18 @@
+<div>
+    <form action="#" #meetupForm="ngForm" (ngSubmit)="SaveAnswers(meetupForm)">
+        <ul>
+            <li *ngFor="let item of questions; let iQuestion = index">
+                {{item.question}}
+                <ul>
+                    <li *ngFor="let answer of item.answers; let iAnswer = index">
+                        <input type="radio" name="{{iQuestion}}" id="a{{iQuestion}}{{iAnswer}}" value="{{iAnswer}}" ngModel> 
+                        <label for="a{{iQuestion}}{{iAnswer}}">{{answer}}</label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <input type="submit" value="Submit" class="btn">
+    </form>
+</div>
+
+<matches></matches>
