@@ -5,8 +5,16 @@
                 {{item.question}}
                 <ul>
                     <li *ngFor="let answer of item.answers; let iAnswer = index">
-                        <input type="radio" name="{{iQuestion}}" id="a{{iQuestion}}{{iAnswer}}" value="{{iAnswer}}" ngModel> 
-                        <label for="a{{iQuestion}}{{iAnswer}}">{{answer}}</label>
+                        <div [ngSwitch]="item.multianswer">
+                            <div *ngSwitchCase="false">
+                                <input type="checkbox" name="{{iQuestion}}" id="a{{iQuestion}}{{iAnswer}}" value="{{iAnswer}}" ngModel> 
+                                <label for="a{{iQuestion}}{{iAnswer}}">{{answer}}</label>
+                            </div>
+                            <div *ngSwitchCase="true">
+                                <input type="radio" name="{{iQuestion}}[]" id="a{{iQuestion}}{{iAnswer}}" value="{{iAnswer}}" ngModel> 
+                                <label for="a{{iQuestion}}{{iAnswer}}">{{answer}}</label>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </li>

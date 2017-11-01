@@ -1,3 +1,3 @@
-<p *ngFor="let item of accService.getMatchedPersons() | async">
-        {{(accService.fetchUser(item.token) | async).display_name}}        
+<p *ngFor="let item of matches | async">
+        <img src="{{item.profile_picture}}">
 </p>

@@ -6,12 +6,14 @@ const questions=
     [
         {
             question: "quest1?",
-            answers: ["answer1", "answer2", "answer3"]
+            answers: ["answer1", "answer2", "answer3"],
+            multianswer: false,
         },
 
         {
             question: "quest2?",
-            answers: ["answer1", "answer2", "answer3"]
+            answers: ["answer1", "answer2", "answer3"],
+            multianswer: true,
         },
     ]
 
@@ -25,12 +27,9 @@ const questions=
     
     public SaveAnswers(form: NgForm) {
         let strictData: any;
-        strictData['is'] = form.value[0];
-        strictData['search'] = form.value[1];
 
         let questionsData: any[];
-        for(let i in form.value) 
-            console.log(i);
+        console.log(form.value)
 
         //this.accService.saveUserMeetingScore(form.value);
     }

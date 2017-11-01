@@ -14,6 +14,7 @@ export class Person {
     display_name: string;
     description: string;
     profile_picture: string;
+    token: string;
 }
 
 export class CurrentUser {
@@ -32,4 +33,5 @@ export class Conversation {
     from: String;
     to: String;
     lastMessage: String;
+    otherPerson:Person;
 }

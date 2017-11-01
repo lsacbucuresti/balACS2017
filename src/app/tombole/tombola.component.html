@@ -1,5 +1,8 @@
 <div class="col s12 m12 l12">
-    <div class="card" [class.registered]="this.accService.isRegisteredForTombola(tombolaInfo.identification)">
+    <div class="card horizontal" [class.registered]="this.accService.isRegisteredForTombola(tombolaInfo.identification)">
+        <div class="card-image">
+            <img src="https://lorempixel.com/100/190/nature/6">
+        </div>
         <div class="card-content">
             <div class="card-title">
                 <p> {{ tombolaInfo.display_name }} </p>

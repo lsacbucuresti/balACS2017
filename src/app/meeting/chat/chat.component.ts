@@ -19,8 +19,6 @@ import { Conversation, Message } from '../../datatypes';
     messages: Message[];
     messagesObservable: FirebaseListObservable<any>;
 
-    otherPersonToken: String;
-    otherPerson: any;
     ngOnInit(): void {
         this.convObservable = this.afDb.object(`/meeting/conversations/${this.route.snapshot.params['id']}`);
         this.convObservable.map(cnv => {
@@ -34,17 +32,17 @@ import { Conversation, Message } from '../../datatypes';
             this.chatSecurity();
 
             // Find the orther's person token
-            this.otherPersonToken = this.conv.from;
+            let otherPersonToken = this.conv.from;
             if(this.conv.from == this.accService.user.firebaseUser.uid) {
-                this.otherPersonToken = this.conv.to;
+                otherPersonToken = this.conv.to;
             }
             
-            this.afDb.object(`/users/${this.otherPersonToken}`).map(i => {
+            this.afDb.object(`/users/${otherPersonToken}`).map(i => {
                 let tmp:any = {};
                 tmp['display_name'] = i.display_name;
                 tmp['profile_picture'] = i.profile_picture;
                 return tmp;
-            }).take(1).subscribe(i => this.otherPerson = i);
+            }).take(1).subscribe(i => this.conv.otherPerson = i);
         });
 
         this.messagesObservable = this.afDb.list(`/meeting/conversations/${this.route.snapshot.params['id']}/messages`);
