@@ -1,4 +1,13 @@
-<div> {{ currUser.firebaseUser?.uid }} </div>
+<!-- <div> {{ currUser.firebaseUser?.uid }} </div>
 <button class="btn" (click)="login()" [hidden]="currUser.isLogged">Login</button>
 <button (click)="logout()" [hidden]="!currUser.isLogged">Logout</button>
-{{ currUser.isLogged }}
+{{ currUser.isLogged }} -->
+
+<img src="assets/images/masca.svg">
+<div class="row center">
+    <h2>Balul Bobocilor</h2>
+</div>
+
+<div class="row">
+    <img class="col s8 offset-s2" (click)="login()" [hidden]="currUser.isLogged" src="assets/images/login_button.png">
+</div>

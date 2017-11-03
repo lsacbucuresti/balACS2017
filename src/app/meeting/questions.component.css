@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
+
+.purpleish-text {
+    color: #4B1E5F !important;
+}
+
+.lato-font {
+    font-family: 'Lato', sans-serif;
+}
+
+.question {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.answer {
+    font-size: 14px;
+}
+
+.checkbox-purpleish[type="checkbox"].filled-in:checked + label:after{
+    border: 2px solid #4B1E5F;
+    background-color: #4B1E5F;
+}
+
+.radio-purpleish[type="radio"].filled-in:checked + label:after{
+    border: 2px solid #4B1E5F;
+    background-color: #4B1E5F;
+}

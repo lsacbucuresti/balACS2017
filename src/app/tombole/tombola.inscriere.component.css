@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300');
+
+
 .full-screen {
     height: 100vh;
     width: 100vw;
@@ -15,3 +18,23 @@
     top:0;
     position:absolute;
 }
+
+.row {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+input {
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+}
+
+/* label focus color */
+.input-field input:focus + label {
+    color: #000;
+}
+/* label underline focus color */
+  .input-field input:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }

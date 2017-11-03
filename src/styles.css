@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background: url('assets/images/bg.jpg') fixed;
+    background-size: 100%;
+}
+
+
+body::-webkit-scrollbar {
+    width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #4B1E5F;
+    outline: 1px solid slategrey;
+}
+
+.purpleish {
+    background-color: #6C3C82;
+}
+
+.title-font {
+    font-size: 16px !important;
+}
+
+.vote-width {
+    width: 48%;
+}
+
+.vote-offset {
+    margin-left: 4%;
+}

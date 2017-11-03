@@ -25,6 +25,11 @@ import { CurrentUser } from '../datatypes';
 
     ngOnInit(): void {
         this.accService.getUser().subscribe((user: CurrentUser) => this.currUser = user);
+        this.currUser.firebaseAuthState.subscribe(a => {
+            if (a.uid) {
+                this.router.navigate([ '/tombole' ]);
+            }
+        });
     }
 
     constructor(private accService: AccountService, public afAuth: AngularFireAuth, private router: Router, private afDb: AngularFireDatabase) { }
