@@ -140,10 +140,11 @@ const questions =
     constructor(private accService: AccountService) {}
 
     public SaveAnswers(form: NgForm) {
+        console.log(form);
         let strictData: any;
 
         let questionsData: any[];
-        console.log(form.value);
+        //console.log(form.value);
 
         // this.accService.saveUserMeetingScore(form.value);
     }

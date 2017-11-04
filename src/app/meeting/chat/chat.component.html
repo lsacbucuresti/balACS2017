@@ -1,12 +1,14 @@
-<div class="flow-text">CHATTING WITH {{otherPerson['display_name']}}</div>
-<form #textForm="ngForm" (ngSubmit)="sendMessage(textForm)">
-    <input type="text" name="message" ngModel>
-    <input type="submit" class="btn" name="submit" value="Send!">
-</form>
-
-<ul style="height:90vh; width: 100vw; overflow-y:scroll;">
+<!-- <div class="flow-text">CHATTING WITH {{conv?.otherPerson?.display_name}}</div> -->
+<div class="row" style="height:100vh; padding:0; margin:0; margin-top:-56px; padding-top:56px;margin-bottom:-10vh; padding-bottom: 10vh;">
+<ul style="height:100%; width: 100vw; overflow-y:scroll;" #scrollMe [scrollTop]="scrollMe.scrollHeight">
     <li *ngFor="let msg of messages">
-        {{msg.sender}} | {{msg.text}}
+        <div class="col s8" [class.offset-s4]="msg?.sender == this.accService.user.firebaseUser.uid" [class.right-text]="msg?.sender == this.accService.user.firebaseUser.uid">{{msg?.text}}</div>
     </li>
 </ul>
+
+<form autocomplete="off" #textForm="ngForm" (ngSubmit)="sendMessage(textForm)" action="" style="padding:0; margin: 0;">
+    <input type="text" name="message" style="padding:0; margin:0;" ngModel>
+   
+</form>
+</div>
 

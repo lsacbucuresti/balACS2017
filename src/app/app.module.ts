@@ -17,7 +17,6 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
-import { TinderProfilingComponent } from './meeting/profiling.component';
 import { TomboleComponent } from './tombole/tombole.component';
 import { VotesComponent } from './vote/vote.component';
 import { TombolaComponent } from './tombole/tombola.component';
@@ -36,7 +35,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'meeting',
-    component: QuestionsComponent,
+    component: MatchesComponent,
     canActivate: [AuthGuard],
   },
   {
@@ -60,18 +59,13 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'matches',
-    component: MatchesComponent,
-    canActivate: [AuthGuard],
-  },
-  {
     path: 'chat/:id',
     component: ChatComponent,
     canActivate: [AuthGuard],
   },
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   // { path: '**', component: PageNotFoundComponent }
@@ -84,7 +78,6 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     LandingComponent,
-    TinderProfilingComponent,
     TomboleComponent,
     VotesComponent,
     TombolaComponent,

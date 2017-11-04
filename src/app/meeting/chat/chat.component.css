@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
+
+li {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: #4B1E5F !important;
+}
+
+
+.purpleish-text {
+    color: #4B1E5F !important;
+}
+.right-text {
+    text-align: right;
+}
