@@ -30,8 +30,9 @@ export class Message {
 }
 
 export class Conversation {
-    from: String;
-    to: String;
-    lastMessage: String;
-    otherPerson:Person;
+    from: string;
+    to: string;
+    lastMessage: string;
+    otherPerson: Person;
+    token: String;
 }

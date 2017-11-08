@@ -1,3 +1,19 @@
-<p *ngFor="let item of matches | async">
-        <img src="{{item.profile_picture}}">
-</p>
+<div class="matches">
+        <div *ngFor="let item of matches | async" (click)="startNewConversation(item.token)" [ngStyle]="{'background': 'url(' + item.profile_picture + ') no-repeat', 'background-size': '30vw' }" class="match">
+        </div>
+        <div *ngFor="let item of matches | async" class="match_name">{{ item.display_name }}</div>
+</div>
+
+<div class="conversations">
+        <div *ngFor="let item of conversations" class="row chat">
+                <a routerLink="/chat/{{item.token}}">
+                        <img class="circle" style="height: 100%; float: left;" src="{{ item.otherPerson.profile_picture }}">
+                        <div class="col s9" style="height:100%;">
+                                <div style="height: 100%; margin: 0; padding-top: 15px; line-height:1.1;">
+                                        <p class="conversation_title">{{ item.otherPerson.display_name }}</p>
+                                        <p class="conversation_lastmsg">{{ item.lastMessage }}</p>
+                                </div>
+                        </div>
+                </a>
+        </div>
+</div>

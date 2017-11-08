@@ -1,14 +1,15 @@
 <!-- <div class="flow-text">CHATTING WITH {{conv?.otherPerson?.display_name}}</div> -->
-<div class="row" style="height:100vh; padding:0; margin:0; margin-top:-56px; padding-top:56px;margin-bottom:-10vh; padding-bottom: 10vh;">
-<ul style="height:100%; width: 100vw; overflow-y:scroll;" #scrollMe [scrollTop]="scrollMe.scrollHeight">
-    <li *ngFor="let msg of messages">
-        <div class="col s8" [class.offset-s4]="msg?.sender == this.accService.user.firebaseUser.uid" [class.right-text]="msg?.sender == this.accService.user.firebaseUser.uid">{{msg?.text}}</div>
-    </li>
-</ul>
-
-<form autocomplete="off" #textForm="ngForm" (ngSubmit)="sendMessage(textForm)" action="" style="padding:0; margin: 0;">
-    <input type="text" name="message" style="padding:0; margin:0;" ngModel>
-   
+<div class="row" style="height:100vh; padding:0; margin:0; margin-top:-56px; padding-top:56px;margin-bottom:-7vh; padding-bottom: 7vh;">
+    <ul style="height:100%; width: 100vw; overflow-y:scroll;" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+        <li *ngFor="let msg of messages" [class.him]="msg?.sender != this.accService.user.firebaseUser.uid" [class.me]="msg?.sender == this.accService.user.firebaseUser.uid">
+            {{msg?.text}}
+        </li>
+    </ul>
+</div>    
+<form id="sendmsg" autocomplete="off" #textForm="ngForm" (ngSubmit)="sendMessage(textForm)" action="" style="margin: 0; padding: 0;" >
+    <input type="text" name="message" style="height: 7vh; margin: 0; margin-right:-8vh;  background-color:white;" ngModel>
+    <button type="submit" form="sendmsg" name="submit" style="border: 0; width:7vh; height: 7vh; margin: 0; background-color:transparent;">
+            <i class="material-icons">send</i>
+        </button>
 </form>
-</div>
 

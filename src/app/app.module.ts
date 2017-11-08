@@ -39,6 +39,11 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'questions',
+    component: QuestionsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'vote',
     component: VotesComponent,
     canActivate: [AuthGuard],

@@ -18,6 +18,14 @@ export class AppComponent implements OnInit {
   constructor(private accService: AccountService) { }
 
   ngOnInit(): void {
+    this.accService.updateMatches();
+        const timer = Observable.timer(60000 * 5, 60000 * 5);
+        timer.subscribe(t => {
+          // search for matches!
+          this.accService.updateMatches();
+        });
+
+
     this.accService.getUser().subscribe(user => this.user = user);
   }
 }
