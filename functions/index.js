@@ -31,23 +31,3 @@ exports.countBoyVotes = functions.database.ref('/boyVotes/{voted}').onWrite(even
     }
   })
 });
-
-const ref = admin.database().ref()
-
-exports.makeMatches = functions.https.onRequest((req, res) => {
-  ref.child('users').once('value').then(Snap => {
-    Snap.foreach(MySnap => {
-      console.log(MySnap.val().meet_data);
-      if(MySnap.val().meet_data != undefined) {
-        var myval = MySnap.val().meet_data;
-        var scores = [];
-        ref.child('users').once('value').then(other_person_snap => {
-          if(other_person_snap.val().meet_data != undefined) {
-            var otherval = other_person_snap.val().meet_data;
-            //if(MySnap.)
-          }
-        });
-      }
-    });
-  })
-});

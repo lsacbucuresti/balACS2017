@@ -12,10 +12,10 @@ import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/databa
 export class TomboleComponent {
   tombole: Tombola[];
   constructor(public af: AngularFireDatabase, public accService: AccountService) {
-    let tombole = af.list('/tombole').map(tombole => {
-      tombole.map(tombola => tombola.identification = tombola.$key);
-      console.log(tombole);
-      return tombole;
+    this.accService.pageTitle = "Tombole";
+    const tombole = af.list('/tombole').map(tbl => {
+      tbl.map(tombola => tombola.identification = tombola.$key);
+      return tbl;
     }).subscribe(a => {
       this.tombole = a;
     });

@@ -23,6 +23,7 @@ import { TombolaComponent } from './tombole/tombola.component';
 import { AuthGuard } from './authGuard.service';
 import { AccountService } from './services/account.service';
 import { QuestionsComponent } from './meeting/questions.component';
+import { BereComponent } from './bere/bere.component';
 
 const appRoutes: Routes = [
   {
@@ -73,6 +74,11 @@ const appRoutes: Routes = [
     redirectTo: '/login',
     pathMatch: 'full'
   },
+  {
+    path: 'bere',
+    component: BereComponent,
+    canActivate: [AuthGuard],
+  }
   // { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -90,6 +96,7 @@ const appRoutes: Routes = [
     QuestionsComponent,
     MatchesComponent,
     ChatComponent,
+    BereComponent,
   ],
   imports: [
     BrowserModule,

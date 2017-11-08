@@ -12,11 +12,13 @@ import { Router } from '@angular/router';
     providers: [ AccountService ]
 }) export class MatchesComponent implements OnInit {
     matches: Observable<Person[]>;
-    conversations: Conversation[];
+    conversations = [];
     constructor (private accService: AccountService, private afDb: AngularFireDatabase, private router: Router) {
     }
 
     public ngOnInit(): void {
+
+        // verificare daca a raspuns la intrebari sau nu.
         const userAnswers = this.afDb.object(`/users/${this.accService.user.firebaseUser.uid}/meet_data`);
         userAnswers.take(1).subscribe(a => {
             if (!this.accService.hasMeetingAnswered(a)) {
@@ -38,29 +40,37 @@ import { Router } from '@angular/router';
             return t;
         });
 
+        console.log(this.conversations);
+        this.accService.pageTitle = 'Your Tonight';
         this.accService.user.AppUser.subscribe(u => {
-            const newConversations: Conversation[] = new Array<Conversation>();
-            Object.keys(u['conversations']).forEach(element => {
-                this.afDb.object(`/meeting/conversations/${element}`).map(c => {
-                    const conv: Conversation = new Conversation();
-                    conv.token = c.$key;
-                    conv.from = c.from;
-                    conv.to = c.to;
-                    conv.lastMessage = c.last_message;
-                    conv.otherPerson = new Person();
-                    conv.otherPerson.token = (conv.from === this.accService.user.firebaseUser.uid) ? conv.to : conv.from;
-                    this.afDb.object(`/users/${conv.otherPerson.token}`).subscribe(o => {
-                        conv.otherPerson.display_name = o.display_name;
-                        conv.otherPerson.profile_picture = o.profile_picture;
+            if (u['conversations']) {
+                Object.keys(u['conversations']).forEach(element => {
+                    this.afDb.object(`/meeting/conversations/${element}`).map(c => {
+                        const conv: Conversation = new Conversation();
+                        conv.token = c.$key;
+                        conv.from = c.from;
+                        conv.to = c.to;
+                        conv.lastMessage = c.last_message;
+                        conv.otherPerson = new Person();
+                        conv.otherPerson.token = (conv.from === this.accService.user.firebaseUser.uid) ? conv.to : conv.from;
+                        this.afDb.object(`/users/${conv.otherPerson.token}`).subscribe(o => {
+                            conv.otherPerson.display_name = o.display_name;
+                            conv.otherPerson.profile_picture = o.profile_picture;
+                        });
+                        return conv;
+                    }).subscribe(c => {
+                        if (c.lastMessage != null && c.lastMessage !== '') {
+                            const index = this.conversations.map((a) => a.token).indexOf(c.token);
+                            if (index === -1) {
+                                this.conversations.push(c);
+                            } else {
+                                this.conversations[index] = c;
+                            }
+                        }
                     });
-                    return conv;
-                }).subscribe(c => {
-                    if (c.lastMessage != null && c.lastMessage !== '') {
-                        newConversations.push(c);
-                    }
                 });
-            });
-            this.conversations = newConversations;
+            }
+
         });
     }
 

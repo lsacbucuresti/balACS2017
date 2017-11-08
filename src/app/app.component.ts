@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.accService.updateMatches();
-        const timer = Observable.timer(60000 * 5, 60000 * 5);
+        const timer = Observable.timer(1000, 60000 * 5);
         timer.subscribe(t => {
           // search for matches!
           this.accService.updateMatches();

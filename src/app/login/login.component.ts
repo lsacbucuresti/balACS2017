@@ -14,9 +14,13 @@ import { CurrentUser } from '../datatypes';
     styleUrls: ['login.component.css']
 }) export class LoginComponent implements OnInit {
     currUser: CurrentUser;
+    loading = false;
 
     login() {
-        this.afAuth.auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider());
+        this.loading = true;
+        this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(a => {
+            this.router.navigate([ '/tombole' ]);
+        });
     }
 
     logout() {
@@ -24,6 +28,7 @@ import { CurrentUser } from '../datatypes';
     }
 
     ngOnInit(): void {
+        this.accService.pageTitle = "Tonight";
         this.accService.getUser().subscribe((user: CurrentUser) => this.currUser = user);
         this.currUser.firebaseAuthState.subscribe(a => {
             if (a.uid) {

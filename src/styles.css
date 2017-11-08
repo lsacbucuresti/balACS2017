@@ -44,3 +44,17 @@ body::-webkit-scrollbar-thumb {
 .vote-offset {
     margin-left: 4%;
 }
+
+
+body, html {
+    height: 100%;
+  }
+  
+  app-root {
+    height: 100%;
+  }
+  
+  chat {
+    height: 100%;
+  }
+  

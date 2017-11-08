@@ -1,14 +1,14 @@
 <!-- <div class="flow-text">CHATTING WITH {{conv?.otherPerson?.display_name}}</div> -->
-<div class="row" style="height:100vh; padding:0; margin:0; margin-top:-56px; padding-top:56px;margin-bottom:-7vh; padding-bottom: 7vh;">
+<div class="row" style="height:100%; padding:0; margin:0; margin-top:-56px; padding-top:56px;margin-bottom: -45px; padding-bottom: 45px;">
     <ul style="height:100%; width: 100vw; overflow-y:scroll;" #scrollMe [scrollTop]="scrollMe.scrollHeight">
         <li *ngFor="let msg of messages" [class.him]="msg?.sender != this.accService.user.firebaseUser.uid" [class.me]="msg?.sender == this.accService.user.firebaseUser.uid">
             {{msg?.text}}
         </li>
     </ul>
 </div>    
-<form id="sendmsg" autocomplete="off" #textForm="ngForm" (ngSubmit)="sendMessage(textForm)" action="" style="margin: 0; padding: 0;" >
-    <input type="text" name="message" style="height: 7vh; margin: 0; margin-right:-8vh;  background-color:white;" ngModel>
-    <button type="submit" form="sendmsg" name="submit" style="border: 0; width:7vh; height: 7vh; margin: 0; background-color:transparent;">
+<form id="sendmsg" autocomplete="off" #textForm="ngForm" (ngSubmit)="sendMessage(textForm)" action="" style="position: relative; margin: 0; padding: 0;" >
+    <input type="text" name="message" style="display: inline-block; width: 100%; height: 45px; padding: 0 35px 0 8px; box-sizing: border-box; margin: 0; background-color:white;" ngModel>
+    <button type="submit" form="sendmsg" name="submit" style="position: absolute; top: 10px; right: 10px; border: 0; width: 24px; height: 24px; margin: 0; background-color:transparent;">
             <i class="material-icons">send</i>
         </button>
 </form>

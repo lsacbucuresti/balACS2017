@@ -19,10 +19,14 @@ export class VotesComponent implements OnInit {
 
   votedForGirl: boolean;
   votedForBoy: boolean;
+  beer = true;
 
-  constructor(public afAuth: AngularFireAuth, private afDb: AngularFireDatabase, private accService: AccountService, private router: Router) { }
+  constructor(public afAuth: AngularFireAuth, private afDb: AngularFireDatabase, private accService: AccountService, private router: Router) {
+    
+   }
 
   ngOnInit(): void {
+    
     let concurente: FirebaseListObservable<any>;
     let concurenti: FirebaseListObservable<any>;
 
@@ -41,12 +45,18 @@ export class VotesComponent implements OnInit {
       this.user = i;
     });
 
+    this.accService.user.AppUser.subscribe(i => {
+      this.beer = i['bere'];
+    });
+
     this.accService.getUser().subscribe(u => {
       u.AppUser.subscribe(AppUser => {
         this.votedForBoy = AppUser['boy_vote'] ? true : false;
         this.votedForGirl = AppUser['girl_vote'] ? true : false;
       });
     });
+
+    this.accService.pageTitle = "Miss & Mister";
   }
 
   private voteForGirl(pram: string): void {

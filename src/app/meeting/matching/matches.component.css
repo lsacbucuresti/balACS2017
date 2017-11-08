@@ -32,6 +32,7 @@
     padding-left: 10px;
     display: inline-block;
     vertical-align: middle;
+    padding:10px;
 }
 
 .chat p {
@@ -44,7 +45,8 @@
 
 .conversation_title {
     font-size: 20px;
-    margin-bottom: 0;
+    margin-top: -5px;
+    margin-bottom: 5px;
 }
 
 .conversation_lastmsg {

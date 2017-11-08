@@ -34,7 +34,35 @@ input {
     color: #000;
 }
 /* label underline focus color */
-  .input-field input:focus {
+.input-field input:focus {
     border-bottom: 1px solid #000;
     box-shadow: 0 1px 0 0 #000;
-  }
+}
+
+.hidebtn {
+    -webkit-animation: closebtn 1.0s forwards;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-delay: 5s;
+    animation: closebtn 1.0s forwards;
+    animation-iteration-count: 1;
+    animation-delay: 5s;
+    opacity: 0;
+    right: -9999px;
+}
+
+@-webkit-keyframes closebtn {
+    0% {
+    }
+    100% {
+        opacity: 1;
+        right: 0;
+    }
+}
+@keyframes closebtn {
+    0% {
+    }
+    100% {
+        opacity: 1;
+        right: 0;
+    }
+}

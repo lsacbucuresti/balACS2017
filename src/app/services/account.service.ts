@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AccountService {
-
+    pageTitle: String = 'Tonight';
     user: CurrentUser = new CurrentUser();
     observableUser: Observable<CurrentUser> = Observable.of(this.user);
     private AppUserData: any;
@@ -102,7 +102,6 @@ export class AccountService {
     saveUserMeetingScore(formData: any) {
         const userAnswers = this.afDb.object(`/users/${this.user.firebaseUser.uid}/meet_data`);
         userAnswers.take(1).subscribe(a => {
-            console.log(a);
             if (!this.hasMeetingAnswered(a)) {
                 userAnswers.update(formData);
             }
@@ -121,11 +120,13 @@ export class AccountService {
         this.afDb.list('/users/').take(1).subscribe(allUsers => {
             let scores = [];
             const myAnswers = this.AppUserData.meet_data;
-            console.log(myAnswers);
+            if (!myAnswers) {
+                return;
+            }
             allUsers.forEach(user => {
                 if (user.meet_data !== undefined) {
                     if (user.$key !== this.user.firebaseUser.uid) {
-                        if (user.meet_data[0] === '2' || user.meet_data[0] === myAnswers[1] && myAnswers[0] === user.meet_data[1]) {
+                        if (myAnswers[1] === '2' || user.meet_data[0] === myAnswers[1] && myAnswers[0] === user.meet_data[1]) {
                             let score = 0;
                             Object.keys(user.meet_data).forEach(question => {
                                 if (myAnswers[question] !== undefined) {
@@ -138,17 +139,23 @@ export class AccountService {
                     }
                 }
             });
-            this.afDb.object(`/meeting/matches/${this.user.firebaseUser.uid}`).set({});
-
             scores = scores.sort((u1, u2) => u1.scor - u2.scor);
             if (scores.length > 0) {
                 this.afDb.object(`/meeting/matches/${this.user.firebaseUser.uid}/0`).set(scores[0].user);
+            } else {
+                this.afDb.object(`/meeting/matches/${this.user.firebaseUser.uid}/0`).set({display_name: '', profile_picture: ''});
             }
+
             if (scores.length > 1) {
                 this.afDb.object(`/meeting/matches/${this.user.firebaseUser.uid}/1`).set(scores[1].user);
+            } else {
+                this.afDb.object(`/meeting/matches/${this.user.firebaseUser.uid}/1`).set({display_name: '', profile_picture: ''});
             }
+
             if (scores.length > 2) {
-                this.afDb.object(`/meeting/matches/${this.user.firebaseUser.uid}/2`).set(scores[2].user);
+                this.afDb.object(`/meeting/matches/${this.user.firebaseUser.uid}/2`).set({display_name: '', profile_picture: ''});
+            } else {
+                this.afDb.object(`/meeting/matches/${this.user.firebaseUser.uid}/2`).set({display_name: '', profile_picture: ''});
             }
         });
     }

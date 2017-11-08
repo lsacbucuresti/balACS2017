@@ -146,9 +146,11 @@ const questions =
         const userAnswers = this.afDb.object(`/users/${this.accService.user.firebaseUser.uid}/meet_data`);
         userAnswers.subscribe(a => {
             if (this.accService.hasMeetingAnswered(a)) {
+                this.accService.updateMatches();
                 this.router.navigate(['/meeting']);
             }
         });
+        this.accService.pageTitle = "Tonight";
     }
 
     public SaveAnswers(form: NgForm) {
