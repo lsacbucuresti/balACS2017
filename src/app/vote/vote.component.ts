@@ -1,9 +1,10 @@
-import { AccountService } from '../account.service';
+import { AccountService } from '../services/account.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 import { CurrentUser, Person } from '../datatypes';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vote',
@@ -16,14 +17,21 @@ export class VotesComponent implements OnInit {
   concurenti: Person[];
   user: CurrentUser;
 
-  constructor(public afAuth: AngularFireAuth, private afDb: AngularFireDatabase, private accService: AccountService) { }
-  
+  votedForGirl: boolean;
+  votedForBoy: boolean;
+  beer = true;
+
+  constructor(public afAuth: AngularFireAuth, private afDb: AngularFireDatabase, private accService: AccountService, private router: Router) {
+    
+   }
+
   ngOnInit(): void {
+    
     let concurente: FirebaseListObservable<any>;
     let concurenti: FirebaseListObservable<any>;
 
-    concurente = this.afDb.list('concurente');
-    concurenti = this.afDb.list('concurenti');
+    concurente = this.afDb.list('/concurente');
+    concurenti = this.afDb.list('/concurenti');
 
     concurente.subscribe(userData => {
       this.concurente = userData;
@@ -33,13 +41,32 @@ export class VotesComponent implements OnInit {
       this.concurenti = userData;
     });
 
-    this.accService.getUser().subscribe(i => { 
+    this.accService.getUser().subscribe(i => {
       this.user = i;
     });
+
+    this.accService.user.AppUser.subscribe(i => {
+      this.beer = i['bere'];
+    });
+
+    this.accService.getUser().subscribe(u => {
+      u.AppUser.subscribe(AppUser => {
+        this.votedForBoy = AppUser['boy_vote'] ? true : false;
+        this.votedForGirl = AppUser['girl_vote'] ? true : false;
+      });
+    });
+
+    this.accService.pageTitle = "Miss & Mister";
   }
 
-  private vote(pram: string): void {
+  private voteForGirl(pram: string): void {
     this.accService.voteForGirl(this.concurente[pram].display_name);
+    location.reload();
+  }
+
+  private voteForBoy(pram: string): void {
+    this.accService.voteForBoy(this.concurenti[pram].display_name);
+    location.reload();
   }
 
 }

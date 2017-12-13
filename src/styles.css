@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+body:before {
+    content: "";
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    background: url('assets/images/bg.jpg') fixed no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+
+body::-webkit-scrollbar {
+    width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #4B1E5F;
+    outline: 1px solid slategrey;
+}
+
+.purpleish {
+    background-color: #6C3C82;
+}
+
+.title-font {
+    font-size: 16px !important;
+}
+
+.vote-width {
+    width: 48%;
+}
+
+.vote-offset {
+    margin-left: 4%;
+}
+
+
+body, html {
+    height: 100%;
+  }
+  
+  app-root {
+    height: 100%;
+  }
+  
+  chat {
+    height: 100%;
+  }
+  

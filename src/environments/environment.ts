@@ -6,11 +6,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyDguvjIkn9iswf83pDvSlzUDBfnDZjRHEg',
-    authDomain: 'bal-test.firebaseapp.com',
-    databaseURL: 'https://bal-test.firebaseio.com',
-    projectId: 'bal-test',
-    storageBucket: 'bal-test.appspot.com',
-    messagingSenderId: '338283283841'
+    apiKey: 'AIzaSyBlMqGCyV4LqbIWuwAHVcpCReTF-ayEbRY',
+    authDomain: 'lsac-tonight2.firebaseapp.com',
+    databaseURL: 'https://lsac-tonight2.firebaseio.com',
+    projectId: 'lsac-tonight2',
+    storageBucket: 'lsac-tonight2.appspot.com',
+    messagingSenderId: '25937690913'
   }
 };

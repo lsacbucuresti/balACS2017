@@ -14,6 +14,7 @@ export class Person {
     display_name: string;
     description: string;
     profile_picture: string;
+    token: string;
 }
 
 export class CurrentUser {
@@ -21,4 +22,17 @@ export class CurrentUser {
     firebaseAuthState: Observable<firebase.User>;
     firebaseUser: firebase.User;
     AppUser: FirebaseObjectObservable<any>;
+}
+
+export class Message {
+    text: String;
+    sender: String;
+}
+
+export class Conversation {
+    from: string;
+    to: string;
+    lastMessage: string;
+    otherPerson: Person;
+    token: String;
 }

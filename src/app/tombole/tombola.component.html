@@ -1,7 +1,10 @@
 <div class="col s12 m12 l12">
-    <div class="card" [class.registered]="this.accService.isRegisteredForTombola(tombolaInfo.identification)">
+    <div class="card horizontal" [class.registered]="this.accService.isRegisteredForTombola(tombolaInfo.identification)">
+        <div class="card-image">
+            <img src="{{tombolaInfo.display_picture}}" style="height:100%;">
+        </div>
         <div class="card-content">
-            <div class="card-title">
+            <div class="card-title title-font">
                 <p> {{ tombolaInfo.display_name }} </p>
             </div>
             <p>{{ tombolaInfo.description }}</p>

@@ -1,3 +1,5 @@
+import { ChatComponent } from './meeting/chat/chat.component';
+import { MatchesComponent } from './meeting/matching/matches.component';
 import { FormsModule } from '@angular/forms';
 import { InscriereTombolaComponent } from './tombole/tombola.inscriere.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,16 +17,15 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
-import { TinderProfilingComponent } from './meeting/profiling.component';
 import { TomboleComponent } from './tombole/tombole.component';
 import { VotesComponent } from './vote/vote.component';
 import { TombolaComponent } from './tombole/tombola.component';
 import { AuthGuard } from './authGuard.service';
-import { AccountService } from './account.service';
+import { AccountService } from './services/account.service';
+import { QuestionsComponent } from './meeting/questions.component';
+import { BereComponent } from './bere/bere.component';
 
 const appRoutes: Routes = [
-  // { path: 'crisis-center', component: CrisisListComponent },
-  // { path: 'hero/:id',      component: HeroDetailComponent },
   {
     path: 'home',
     component: LandingComponent,
@@ -35,7 +36,12 @@ const appRoutes: Routes = [
   },
   {
     path: 'meeting',
-    component: LoginComponent,
+    component: MatchesComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'questions',
+    component: QuestionsComponent,
     canActivate: [AuthGuard],
   },
   {
@@ -59,10 +65,20 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'chat/:id',
+    component: ChatComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
+  {
+    path: 'bere',
+    component: BereComponent,
+    canActivate: [AuthGuard],
+  }
   // { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -73,11 +89,14 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     LandingComponent,
-    TinderProfilingComponent,
     TomboleComponent,
     VotesComponent,
     TombolaComponent,
     InscriereTombolaComponent,
+    QuestionsComponent,
+    MatchesComponent,
+    ChatComponent,
+    BereComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,7 +112,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     AuthGuard,
-    AccountService
+    AccountService,
   ],
   bootstrap: [AppComponent]
 })

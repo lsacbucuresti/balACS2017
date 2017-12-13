@@ -1,6 +1,39 @@
-Persoane:
-<div *ngFor="let x of concurente; let i = index;">
-    <button class="btn" (click)="vote(i)">{{ x.display_name }}</button>
+<div class="container">
+    <div class="container" *ngIf="votedForGirl && votedForBoy && !(this.beer)" class="purpleish-text title-text" style="font-size:16px; font-weight: bold;">
+        Ai votat și ai primit o bere gratuită! Mergi la voluntarii noștri pentru a o putea lua!
+    </div>
+<div *ngFor="let girl of (concurente ? concurente : []); let i = index;" class="row">
+    <div class="card col vote-width" [class.purpleish]="!(votedForGirl)" [class.grey]="(votedForGirl)" style="padding: 0;">
+        <div class="card-image">
+            <img [class.activator]="!(votedForGirl)" src="{{ concurente[i]?.profile_picture }}" >
+        </div>
+        <div [class.activator]="!(votedForGirl)" class="card-content" style="height:100px">
+            <span [class.activator]="!(votedForGirl)" class="card-title white-text text-darken-4 title-font" style="line-height:20px;">{{ concurente[i]?.display_name }}</span>
+        </div>
+        <div class="card-reveal" style="padding:0;">
+            <div style="height:85%; overflow: scroll; width:100%; padding:24px;">
+                <span class="card-title text-darken-4 title-font">{{ concurente[i]?.display_name }}<i class="material-icons right">close</i></span>
+                <p class="card-title title-font">{{ concurente[i]?.description }}</p>
+            </div>
+            <div class="btn purpleish waves-effect waves-white col s12" style="margin-top:3px;" (click)="voteForGirl(i)">Voteaza</div>
+        </div>
+    </div>
+    
+    
+    <div class="card col vote-width vote-offset" [class.purpleish]="!(votedForBoy)" [class.grey]="(votedForBoy)" style="padding: 0;">
+        <div class="card-image">
+            <img [class.activator]="!(votedForBoy)" src="{{ concurenti[i]?.profile_picture }}" >
+        </div>
+        <div [class.activator]="!(votedForBoy)" class="card-content" style="height:100px">
+            <span [class.activator]="!(votedForBoy)" class="card-title white-text text-darken-4 title-font" style="line-height:20px;">{{ concurenti[i]?.display_name }}</span>
+        </div>
+        <div class="card-reveal" style="padding:0;">
+            <div style="height:85%; overflow: scroll; width:100%; padding:24px;">
+                <span class="card-title text-darken-4 title-font">{{ concurenti[i]?.display_name }}<i class="material-icons right">close</i></span>
+                <p class="card-title title-font">{{ concurenti[i]?.description }}</p>
+            </div>
+            <div class="btn purpleish waves-effect waves-white col s12" style="margin-top:3px;" (click)="voteForBoy(i)">Voteaza</div>
+        </div>
+    </div>
 </div>
-<!-- 
-{{ user.AppUser['display_name'] }} -->
+</div>

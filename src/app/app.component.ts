@@ -4,7 +4,7 @@ import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 
-import { AccountService } from './account.service';
+import { AccountService } from './services/account.service';
 import { CurrentUser } from './datatypes';
 
 @Component({
@@ -18,6 +18,14 @@ export class AppComponent implements OnInit {
   constructor(private accService: AccountService) { }
 
   ngOnInit(): void {
+    this.accService.updateMatches();
+        const timer = Observable.timer(1000, 60000 * 5);
+        timer.subscribe(t => {
+          // search for matches!
+          this.accService.updateMatches();
+        });
+
+
     this.accService.getUser().subscribe(user => this.user = user);
   }
 }

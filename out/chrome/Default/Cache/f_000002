@@ -1,0 +1,1356 @@
+webpackJsonp(["main"],{
+
+/***/ "../../../../../src/$$_gendir lazy recursive":
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = "../../../../../src/$$_gendir lazy recursive";
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "  <nav>\n    <ul>\n      <li>\n          <a routerLink=\"/login\" [hidden]=\"user.isLogged\">Login</a>\n      </li>\n      <li>\n          <a routerLink=\"/vote\" [hidden]=\"!user.isLogged\">Voteaza</a>\n      </li>\n      <li>\n          <a routerLink=\"/tombole\" [hidden]=\"!user.isLogged\">Tombole</a>\n      </li>\n      <li>\n        <a routerLink=\"/meeting\" [hidden]=\"!user.isLogged\">Tinder</a>\n      </li>\n    </ul>\n  </nav>\n\n  <router-outlet></router-outlet>\n\n  "
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_account_service__ = __webpack_require__("../../../../../src/app/services/account.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AppComponent = (function () {
+    function AppComponent(accService) {
+        this.accService = accService;
+    }
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.accService.getUser().subscribe(function (user) { return _this.user = user; });
+    };
+    return AppComponent;
+}());
+AppComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-root',
+        template: __webpack_require__("../../../../../src/app/app.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/app.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_account_service__["a" /* AccountService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_account_service__["a" /* AccountService */]) === "function" && _a || Object])
+], AppComponent);
+
+var _a;
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__meeting_chat_chat_component__ = __webpack_require__("../../../../../src/app/meeting/chat/chat.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__meeting_matching_matches_component__ = __webpack_require__("../../../../../src/app/meeting/matching/matches.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tombole_tombola_inscriere_component__ = __webpack_require__("../../../../../src/app/tombole/tombola.inscriere.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_materialize__ = __webpack_require__("../../../../angular2-materialize/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angularfire2__ = __webpack_require__("../../../../angularfire2/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__user_user_component__ = __webpack_require__("../../../../../src/app/user/user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__login_login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__landing_landing_component__ = __webpack_require__("../../../../../src/app/landing/landing.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__meeting_profiling_component__ = __webpack_require__("../../../../../src/app/meeting/profiling.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__tombole_tombole_component__ = __webpack_require__("../../../../../src/app/tombole/tombole.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__vote_vote_component__ = __webpack_require__("../../../../../src/app/vote/vote.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__tombole_tombola_component__ = __webpack_require__("../../../../../src/app/tombole/tombola.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__authGuard_service__ = __webpack_require__("../../../../../src/app/authGuard.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_account_service__ = __webpack_require__("../../../../../src/app/services/account.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__meeting_questions_component__ = __webpack_require__("../../../../../src/app/meeting/questions.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var appRoutes = [
+    {
+        path: 'home',
+        component: __WEBPACK_IMPORTED_MODULE_15__landing_landing_component__["a" /* LandingComponent */],
+    },
+    {
+        path: 'login',
+        component: __WEBPACK_IMPORTED_MODULE_14__login_login_component__["a" /* LoginComponent */],
+    },
+    {
+        path: 'meeting',
+        component: __WEBPACK_IMPORTED_MODULE_22__meeting_questions_component__["a" /* QuestionsComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_20__authGuard_service__["a" /* AuthGuard */]],
+    },
+    {
+        path: 'vote',
+        component: __WEBPACK_IMPORTED_MODULE_18__vote_vote_component__["a" /* VotesComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_20__authGuard_service__["a" /* AuthGuard */]],
+    },
+    {
+        path: 'tombole',
+        component: __WEBPACK_IMPORTED_MODULE_17__tombole_tombole_component__["a" /* TomboleComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_20__authGuard_service__["a" /* AuthGuard */]],
+    },
+    {
+        path: 'tombola/:id',
+        component: __WEBPACK_IMPORTED_MODULE_3__tombole_tombola_inscriere_component__["a" /* InscriereTombolaComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_20__authGuard_service__["a" /* AuthGuard */]],
+    },
+    {
+        path: 'user',
+        component: __WEBPACK_IMPORTED_MODULE_13__user_user_component__["a" /* UserComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_20__authGuard_service__["a" /* AuthGuard */]],
+    },
+    {
+        path: 'matches',
+        component: __WEBPACK_IMPORTED_MODULE_1__meeting_matching_matches_component__["a" /* MatchesComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_20__authGuard_service__["a" /* AuthGuard */]],
+    },
+    {
+        path: 'chat/:id',
+        component: __WEBPACK_IMPORTED_MODULE_0__meeting_chat_chat_component__["a" /* ChatComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_20__authGuard_service__["a" /* AuthGuard */]],
+    },
+    {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+    },
+];
+var AppModule = (function () {
+    function AppModule() {
+    }
+    return AppModule;
+}());
+AppModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["M" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_13__user_user_component__["a" /* UserComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__landing_landing_component__["a" /* LandingComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__meeting_profiling_component__["a" /* TinderProfilingComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__tombole_tombole_component__["a" /* TomboleComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__vote_vote_component__["a" /* VotesComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__tombole_tombola_component__["a" /* TombolaComponent */],
+            __WEBPACK_IMPORTED_MODULE_3__tombole_tombola_inscriere_component__["a" /* InscriereTombolaComponent */],
+            __WEBPACK_IMPORTED_MODULE_22__meeting_questions_component__["a" /* QuestionsComponent */],
+            __WEBPACK_IMPORTED_MODULE_1__meeting_matching_matches_component__["a" /* MatchesComponent */],
+            __WEBPACK_IMPORTED_MODULE_0__meeting_chat_chat_component__["a" /* ChatComponent */],
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_7_angular2_materialize__["a" /* MaterializeModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_6__angular_router__["c" /* RouterModule */].forRoot(appRoutes, { enableTracing: false } // <-- debugging purposes only
+            ),
+            __WEBPACK_IMPORTED_MODULE_8_angularfire2__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_11__environments_environment__["a" /* environment */].firebase),
+            __WEBPACK_IMPORTED_MODULE_9_angularfire2_database__["b" /* AngularFireDatabaseModule */],
+            __WEBPACK_IMPORTED_MODULE_10_angularfire2_auth__["b" /* AngularFireAuthModule */],
+        ],
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_20__authGuard_service__["a" /* AuthGuard */],
+            __WEBPACK_IMPORTED_MODULE_21__services_account_service__["a" /* AccountService */]
+        ],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* AppComponent */]]
+    })
+], AppModule);
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/authGuard.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do__ = __webpack_require__("../../../../rxjs/add/operator/do.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_take__ = __webpack_require__("../../../../rxjs/add/operator/take.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_take___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_take__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var AuthGuard = (function () {
+    function AuthGuard(auth, router) {
+        this.auth = auth;
+        this.router = router;
+    }
+    AuthGuard.prototype.canActivate = function () {
+        var _this = this;
+        return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].from(this.auth.authState)
+            .take(1)
+            .map(function (state) { return !!state; })
+            .do(function (authenticated) {
+            if (!authenticated) {
+                _this.router.navigate(['/login']);
+            }
+        });
+    };
+    return AuthGuard;
+}());
+AuthGuard = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */]) === "function" && _b || Object])
+], AuthGuard);
+
+var _a, _b;
+//# sourceMappingURL=authGuard.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/datatypes.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return Tombola; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return Person; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return CurrentUser; });
+/* unused harmony export Message */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Conversation; });
+var Tombola = (function () {
+    function Tombola() {
+    }
+    return Tombola;
+}());
+
+var Person = (function () {
+    function Person() {
+    }
+    return Person;
+}());
+
+var CurrentUser = (function () {
+    function CurrentUser() {
+    }
+    return CurrentUser;
+}());
+
+var Message = (function () {
+    function Message() {
+    }
+    return Message;
+}());
+
+var Conversation = (function () {
+    function Conversation() {
+    }
+    return Conversation;
+}());
+
+//# sourceMappingURL=datatypes.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/landing/landing.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/landing/landing.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "Bun venit la aplicatie! Avem un tinder, avem votul publicului si avem tombole."
+
+/***/ }),
+
+/***/ "../../../../../src/app/landing/landing.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LandingComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var LandingComponent = (function () {
+    function LandingComponent() {
+        this.title = 'app';
+    }
+    return LandingComponent;
+}());
+LandingComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-landing',
+        template: __webpack_require__("../../../../../src/app/landing/landing.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/landing/landing.component.css")]
+    })
+], LandingComponent);
+
+//# sourceMappingURL=landing.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/login/login.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/login/login.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div> {{ currUser.firebaseUser?.uid }} </div>\n<button class=\"btn\" (click)=\"login()\" [hidden]=\"currUser.isLogged\">Login</button>\n<button (click)=\"logout()\" [hidden]=\"!currUser.isLogged\">Logout</button>\n{{ currUser.isLogged }}\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/login/login.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_app__ = __webpack_require__("../../../../firebase/app.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_app__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_account_service__ = __webpack_require__("../../../../../src/app/services/account.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var LoginComponent = (function () {
+    function LoginComponent(accService, afAuth, router, afDb) {
+        this.accService = accService;
+        this.afAuth = afAuth;
+        this.router = router;
+        this.afDb = afDb;
+    }
+    LoginComponent.prototype.login = function () {
+        this.afAuth.auth.signInWithRedirect(new __WEBPACK_IMPORTED_MODULE_3_firebase_app__["auth"].FacebookAuthProvider());
+    };
+    LoginComponent.prototype.logout = function () {
+        this.afAuth.auth.signOut();
+    };
+    LoginComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.accService.getUser().subscribe(function (user) { return _this.currUser = user; });
+    };
+    return LoginComponent;
+}());
+LoginComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-login',
+        template: __webpack_require__("../../../../../src/app/login/login.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/login/login.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__services_account_service__["a" /* AccountService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_account_service__["a" /* AccountService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _d || Object])
+], LoginComponent);
+
+var _a, _b, _c, _d;
+//# sourceMappingURL=login.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/meeting/chat/chat.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/meeting/chat/chat.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ul style=\"height:90vh; width: 100vw; overflow-y:scroll;\">\n    <li *ngFor=\"let message of conv.messages\">\n        {{message['sender']}} : {{message['text']}}<br>\n    </li>\n</ul>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/meeting/chat/chat.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_account_service__ = __webpack_require__("../../../../../src/app/services/account.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__datatypes__ = __webpack_require__("../../../../../src/app/datatypes.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ChatComponent = (function () {
+    function ChatComponent(accService, afDb, route) {
+        this.accService = accService;
+        this.afDb = afDb;
+        this.route = route;
+        this.conv = new __WEBPACK_IMPORTED_MODULE_4__datatypes__["a" /* Conversation */]();
+        this.conv.messages = [];
+    }
+    ChatComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.convObservable = this.afDb.object("/meeting/conversations/" + this.route.snapshot.params['id']);
+        this.convObservable.map(function (cnv) {
+            var messags;
+            var c = new __WEBPACK_IMPORTED_MODULE_4__datatypes__["a" /* Conversation */]();
+            c.messages = cnv['messages'];
+            c.from = cnv['from'];
+            c.to = cnv['to'];
+            c.lastMessage = cnv['last_message'];
+            return c;
+        }).subscribe(function (c) {
+            _this.conv = c;
+            console.log(c.messages);
+        });
+    };
+    return ChatComponent;
+}());
+ChatComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["o" /* Component */])({
+        selector: 'chat',
+        template: __webpack_require__("../../../../../src/app/meeting/chat/chat.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/meeting/chat/chat.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_2__services_account_service__["a" /* AccountService */]],
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_account_service__["a" /* AccountService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_account_service__["a" /* AccountService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object])
+], ChatComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=chat.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/meeting/matching/matches.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/meeting/matching/matches.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p *ngFor=\"let item of accService.getMatchedPersons() | async\">\n        {{(accService.fetchUser(item.token) | async).display_name}}        \n</p>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/meeting/matching/matches.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MatchesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_account_service__ = __webpack_require__("../../../../../src/app/services/account.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database/index.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var MatchesComponent = (function () {
+    function MatchesComponent(accService, afDb) {
+        this.accService = accService;
+        this.afDb = afDb;
+    }
+    return MatchesComponent;
+}());
+MatchesComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["o" /* Component */])({
+        selector: 'matches',
+        template: __webpack_require__("../../../../../src/app/meeting/matching/matches.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/meeting/matching/matches.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_0__services_account_service__["a" /* AccountService */]]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__services_account_service__["a" /* AccountService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_account_service__["a" /* AccountService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _b || Object])
+], MatchesComponent);
+
+var _a, _b;
+//# sourceMappingURL=matches.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/meeting/profiling.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/meeting/profiling.component.html":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "../../../../../src/app/meeting/profiling.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TinderProfilingComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var TinderProfilingComponent = (function () {
+    function TinderProfilingComponent() {
+    }
+    return TinderProfilingComponent;
+}());
+TinderProfilingComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-meeting-profiling',
+        template: __webpack_require__("../../../../../src/app/meeting/profiling.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/meeting/profiling.component.css")]
+    })
+], TinderProfilingComponent);
+
+//# sourceMappingURL=profiling.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/meeting/questions.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/meeting/questions.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n    <form action=\"#\" #meetupForm=\"ngForm\" (ngSubmit)=\"SaveAnswers(meetupForm)\">\n        <ul>\n            <li *ngFor=\"let item of questions; let iQuestion = index\">\n                {{item.question}}\n                <ul>\n                    <li *ngFor=\"let answer of item.answers; let iAnswer = index\">\n                        <input type=\"radio\" name=\"{{iQuestion}}\" id=\"a{{iQuestion}}{{iAnswer}}\" value=\"{{iAnswer}}\" ngModel> \n                        <label for=\"a{{iQuestion}}{{iAnswer}}\">{{answer}}</label>\n                    </li>\n                </ul>\n            </li>\n        </ul>\n        <input type=\"submit\" value=\"Submit\" class=\"btn\">\n    </form>\n</div>\n\n<matches></matches>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/meeting/questions.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QuestionsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_account_service__ = __webpack_require__("../../../../../src/app/services/account.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var questions = [
+    {
+        question: "quest1?",
+        answers: ["answer1", "answer2", "answer3"]
+    },
+    {
+        question: "quest2?",
+        answers: ["answer1", "answer2", "answer3"]
+    },
+];
+var QuestionsComponent = (function () {
+    function QuestionsComponent(accService) {
+        this.accService = accService;
+        this.questions = questions;
+    }
+    QuestionsComponent.prototype.SaveAnswers = function (form) {
+        var strictData;
+        strictData['is'] = form.value[0];
+        strictData['search'] = form.value[1];
+        var questionsData;
+        for (var i in form.value)
+            console.log(i);
+        //this.accService.saveUserMeetingScore(form.value);
+    };
+    return QuestionsComponent;
+}());
+QuestionsComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["o" /* Component */])({
+        selector: 'meeting-questions',
+        template: __webpack_require__("../../../../../src/app/meeting/questions.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/meeting/questions.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__services_account_service__["a" /* AccountService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_account_service__["a" /* AccountService */]) === "function" && _a || Object])
+], QuestionsComponent);
+
+var _a;
+//# sourceMappingURL=questions.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/account.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__datatypes__ = __webpack_require__("../../../../../src/app/datatypes.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var AccountService = (function () {
+    function AccountService(afAuth, afDb) {
+        var _this = this;
+        this.afAuth = afAuth;
+        this.afDb = afDb;
+        this.user = new __WEBPACK_IMPORTED_MODULE_1__datatypes__["b" /* CurrentUser */]();
+        this.observableUser = __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__["Observable"].of(this.user);
+        var usr;
+        this.user.firebaseAuthState = afAuth.authState;
+        this.user.firebaseAuthState.subscribe(function (user) {
+            _this.user.firebaseUser = user;
+            if (_this.user.firebaseUser != null) {
+                _this.user.isLogged = true;
+                _this.loadUser();
+            }
+            else {
+                _this.user.isLogged = false;
+            }
+        });
+    }
+    AccountService.prototype.loadUser = function () {
+        var _this = this;
+        this.user.AppUser = this.afDb.object('/users/' + this.user.firebaseUser.uid);
+        this.user.firebaseUser.getIdToken().then(function (token) {
+            // then update to the database
+            _this.user.AppUser.update({
+                'user_id': _this.user.firebaseUser.uid,
+                'display_name': _this.user.firebaseUser.displayName,
+                'email': _this.user.firebaseUser.email,
+                'profile_picture': _this.user.firebaseUser.photoURL,
+                'fbToken': token
+            });
+        });
+        this.user.AppUser.map(function (u) {
+            _this.UsersTomboleObservable = _this.afDb.list("/participants/" + u.$key);
+            _this.UsersTomboleObservable.subscribe(function (t) {
+                _this.UsersTombole = t;
+            });
+            _this.UsersMatchesFirebase = _this.afDb.list("/meeting/matches/" + u.$key);
+            return u;
+        }).subscribe(function (u) { return _this.AppUserData = u; });
+    };
+    AccountService.prototype.fetchUser = function (token) {
+        return this.afDb.object("/users/" + token).map(function (person) {
+            var newPerson = new __WEBPACK_IMPORTED_MODULE_1__datatypes__["c" /* Person */]();
+            newPerson.display_name = person['display_name'];
+            newPerson.profile_picture = person['profile_picture'];
+            return newPerson;
+        });
+    };
+    AccountService.prototype.getUser = function () {
+        return this.observableUser;
+    };
+    AccountService.prototype.voteForGirl = function (votedFor) {
+        if (this.user.isLogged && !this.AppUserData['girl_vote']) {
+            var concurente = this.afDb.list('girlVotes', { query: { limitToFirst: 1 } });
+            concurente.push({ to: votedFor, from: this.user.firebaseUser.uid });
+            this.user.AppUser.update({ girl_vote: true });
+        }
+    };
+    AccountService.prototype.isRegisteredForTombola = function (tombolaId) {
+        if (this.user.isLogged && this.UsersTombole.find(function (i) { return i.$key === tombolaId; }))
+            return true;
+        return false;
+    };
+    AccountService.prototype.registerForTombola = function (tombola, fillData) {
+        if (tombola != null) {
+            if (!this.isRegisteredForTombola(tombola.identification)) {
+                this.UsersTomboleObservable.set(tombola.identification, fillData);
+            }
+        }
+    };
+    AccountService.prototype.saveUserMeetingScore = function (formData) {
+        var _this = this;
+        var userAnswers = this.afDb.object("/meeting/" + this.user.firebaseUser.uid);
+        userAnswers.subscribe(function (a) {
+            console.log(a);
+            if (!_this.hasMeetingAnswered(a)) {
+                userAnswers.update(formData);
+            }
+        });
+    };
+    AccountService.prototype.hasMeetingAnswered = function (userData) {
+        return userData.$value != null;
+    };
+    AccountService.prototype.getMatchedPersons = function () {
+        return this.UsersMatchesFirebase;
+    };
+    return AccountService;
+}());
+AccountService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _b || Object])
+], AccountService);
+
+;
+var _a, _b;
+//# sourceMappingURL=account.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/tombole/tombola.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".registered {\n    background-color: red;\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/tombole/tombola.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"col s12 m12 l12\">\n    <div class=\"card\" [class.registered]=\"this.accService.isRegisteredForTombola(tombolaInfo.identification)\">\n        <div class=\"card-content\">\n            <div class=\"card-title\">\n                <p> {{ tombolaInfo.display_name }} </p>\n            </div>\n            <p>{{ tombolaInfo.description }}</p>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/tombole/tombola.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TombolaComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_account_service__ = __webpack_require__("../../../../../src/app/services/account.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__datatypes__ = __webpack_require__("../../../../../src/app/datatypes.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var TombolaComponent = (function () {
+    function TombolaComponent(accService) {
+        this.accService = accService;
+    }
+    return TombolaComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["F" /* Input */])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__datatypes__["d" /* Tombola */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__datatypes__["d" /* Tombola */]) === "function" && _a || Object)
+], TombolaComponent.prototype, "tombolaInfo", void 0);
+TombolaComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["o" /* Component */])({
+        selector: 'app-component-tombola',
+        template: __webpack_require__("../../../../../src/app/tombole/tombola.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/tombole/tombola.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__services_account_service__["a" /* AccountService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_account_service__["a" /* AccountService */]) === "function" && _b || Object])
+], TombolaComponent);
+
+var _a, _b;
+//# sourceMappingURL=tombola.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/tombole/tombola.inscriere.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".full-screen {\n    height: 100vh;\n    width: 100vw;\n    position:fixed;\n    z-index:100;\n    background-color:black;\n    color:White;\n    left:0;\n    top:0;\n    text-align: center;\n}\n\n.close-button-float {\n    right: 0;\n    top:0;\n    position:absolute;\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/tombole/tombola.inscriere.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n    <div [ngSwitch]=\"tombola.media_type\" class=\"full-screen valign-wrapper\" *ngIf=\"addVisible === true\">\n        <div class=\"\" *ngSwitchCase=\"'image'\" class=\"valign\">\n            <button class=\"btn close-button-float\" (click)=\"closeAdd()\">close</button>\n            AICI AR TREBUI SA FIE O IMAGINE CA ADD.\n        </div>\n        \n        <div class=\"\" *ngSwitchCase=\"'video'\" class=\"valign\">\n            AICI AR TREBUI SA FIE UN VIDEO CA ADD.\n        </div>\n    </div>\n \n    vezi tombola {{ tombola.display_name }}\n    <form #signForm=\"ngForm\" (ngSubmit)=\"SignToTombola(signForm)\" *ngIf=\"addVisible === false\">\n        <div class=\"row\" *ngFor=\"let field of tombola.required_fields\">\n            <div [ngSwitch]=\"field\">\n                \n                <div class=\"input-field col s12\" *ngSwitchCase=\"'name'\">\n                    <input id=\"nume\" type=\"text\" required class=\"validate\" name=\"name\" ngModel>\n                    <label for=\"nume\">Nume</label>\n                </div>\n                <div class=\"input-field col s12\" *ngSwitchCase=\"'surname'\">\n                    <input id=\"prenume\" type=\"text\" required class=\"validate\" name=\"surname\" ngModel>\n                    <label for=\"prenume\">Prenume</label>\n                </div>\n                <div class=\"input-field col s12\" *ngSwitchCase=\"'cnp'\">\n                    <input id=\"cnp\" type=\"number\" required class=\"validate\" name=\"cnp\" ngModel>\n                    <label for=\"cnp\">CNP</label>\n                </div>\n                <div class=\"input-field col s12\" *ngSwitchCase=\"'email'\">\n                    <input id=\"email\" type=\"email\" required class=\"validate\" name=\"email\" ngModel>\n                    <label for=\"email\">Email</label>\n                </div>\n                <div class=\"input-field col s12\" *ngSwitchCase=\"'phone'\">\n                        <input id=\"phone\" type=\"tel\" required class=\"validate\" name=\"phone\" ngModel>\n                        <label for=\"phone\">Telefon</label>\n                    </div>\n                <div *ngSwitchDefault>asdasdsa</div>\n            </div>\n        </div>\n        <button class=\"btn waves-effect waves-light\" type=\"submit\" name=\"action\">Submit\n            </button>\n    </form>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/tombole/tombola.inscriere.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InscriereTombolaComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__datatypes__ = __webpack_require__("../../../../../src/app/datatypes.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_account_service__ = __webpack_require__("../../../../../src/app/services/account.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database/index.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var InscriereTombolaComponent = (function () {
+    function InscriereTombolaComponent(af, accService, router, route) {
+        var _this = this;
+        this.af = af;
+        this.accService = accService;
+        this.router = router;
+        this.tombola = new __WEBPACK_IMPORTED_MODULE_1__datatypes__["d" /* Tombola */]();
+        this.addVisible = true;
+        console.log("/tombole/" + route.snapshot.params['id']);
+        var tombole = af.object("/tombole/" + route.snapshot.params['id'])
+            .map(function (tombola) { tombola.identification = tombola.$key; return tombola; })
+            .subscribe(function (a) { _this.tombola = a; });
+    }
+    InscriereTombolaComponent.prototype.closeAdd = function () {
+        this.addVisible = false;
+    };
+    InscriereTombolaComponent.prototype.SignToTombola = function (form) {
+        this.accService.registerForTombola(this.tombola, form.value);
+        this.router.navigateByUrl('/tombole');
+    };
+    return InscriereTombolaComponent;
+}());
+InscriereTombolaComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["o" /* Component */])({
+        selector: 'tombola-inscriere',
+        //template: '{{tombola.display_name}}',
+        template: __webpack_require__("../../../../../src/app/tombole/tombola.inscriere.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/tombole/tombola.inscriere.component.css")],
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_account_service__["a" /* AccountService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_account_service__["a" /* AccountService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object])
+], InscriereTombolaComponent);
+
+var _a, _b, _c, _d;
+//# sourceMappingURL=tombola.inscriere.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/tombole/tombole.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".registered:nth-child() {\n    background-color: red !important;\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/tombole/tombole.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n    <div class=\"row\" *ngFor=\"let tombola of tombole\">\n        <a href=\"tombola/{{tombola.identification}}\">\n            <app-component-tombola [tombolaInfo]=\"tombola\"></app-component-tombola>\n        </a>\n    </div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/tombole/tombole.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TomboleComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_account_service__ = __webpack_require__("../../../../../src/app/services/account.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database/index.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var TomboleComponent = (function () {
+    function TomboleComponent(af, accService) {
+        var _this = this;
+        this.af = af;
+        this.accService = accService;
+        var tombole = af.list('/tombole').map(function (tombole) {
+            tombole.map(function (tombola) { return tombola.identification = tombola.$key; });
+            console.log(tombole);
+            return tombole;
+        }).subscribe(function (a) {
+            _this.tombole = a;
+        });
+    }
+    return TomboleComponent;
+}());
+TomboleComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["o" /* Component */])({
+        selector: 'app-tombole',
+        template: __webpack_require__("../../../../../src/app/tombole/tombole.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/tombole/tombole.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__services_account_service__["a" /* AccountService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_account_service__["a" /* AccountService */]) === "function" && _b || Object])
+], TomboleComponent);
+
+var _a, _b;
+//# sourceMappingURL=tombole.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/user/user.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/user/user.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div materialize class=\"btn\">Btn1</div>\n<div materialize class=\"btn\">Btn1</div>\n<div materialize class=\"btn\">Btn1</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/user/user.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var UserComponent = (function () {
+    function UserComponent() {
+    }
+    return UserComponent;
+}());
+UserComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'user-root',
+        template: __webpack_require__("../../../../../src/app/user/user.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/user/user.component.css")]
+    })
+], UserComponent);
+
+//# sourceMappingURL=user.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/vote/vote.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/vote/vote.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "Persoane:\n<div *ngFor=\"let x of concurente; let i = index;\">\n    <button class=\"btn\" (click)=\"vote(i)\">{{ x.display_name }}</button>\n</div>\n<!-- \n{{ user.AppUser['display_name'] }} -->"
+
+/***/ }),
+
+/***/ "../../../../../src/app/vote/vote.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VotesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_account_service__ = __webpack_require__("../../../../../src/app/services/account.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database/index.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var VotesComponent = (function () {
+    function VotesComponent(afAuth, afDb, accService) {
+        this.afAuth = afAuth;
+        this.afDb = afDb;
+        this.accService = accService;
+    }
+    VotesComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var concurente;
+        var concurenti;
+        concurente = this.afDb.list('concurente');
+        concurenti = this.afDb.list('concurenti');
+        concurente.subscribe(function (userData) {
+            _this.concurente = userData;
+        });
+        concurenti.subscribe(function (userData) {
+            _this.concurenti = userData;
+        });
+        this.accService.getUser().subscribe(function (i) {
+            _this.user = i;
+        });
+    };
+    VotesComponent.prototype.vote = function (pram) {
+        this.accService.voteForGirl(this.concurente[pram].display_name);
+    };
+    return VotesComponent;
+}());
+VotesComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["o" /* Component */])({
+        selector: 'app-vote',
+        template: __webpack_require__("../../../../../src/app/vote/vote.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/vote/vote.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_0__services_account_service__["a" /* AccountService */]]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__services_account_service__["a" /* AccountService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_account_service__["a" /* AccountService */]) === "function" && _c || Object])
+], VotesComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=vote.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/environments/environment.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `.angular-cli.json`.
+// The file contents for the current environment will overwrite these during build.
+var environment = {
+    production: false,
+    firebase: {
+        apiKey: 'AIzaSyDguvjIkn9iswf83pDvSlzUDBfnDZjRHEg',
+        authDomain: 'bal-test.firebaseapp.com',
+        databaseURL: 'https://bal-test.firebaseio.com',
+        projectId: 'bal-test',
+        storageBucket: 'bal-test.appspot.com',
+        messagingSenderId: '338283283841'
+    }
+};
+//# sourceMappingURL=environment.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/main.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__("../../../platform-browser-dynamic/@angular/platform-browser-dynamic.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__("../../../../../src/app/app.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+
+
+
+
+if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_23" /* enableProdMode */])();
+}
+Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
+    .catch(function (err) { return console.log(err); });
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ "../../../../webpack/hot ^\\.\\/log$":
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./log": "../../../../webpack/hot/log.js"
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number or string
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "../../../../webpack/hot ^\\.\\/log$";
+
+/***/ }),
+
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("../../../../webpack-dev-server/client/index.js?http://localhost:4200");
+module.exports = __webpack_require__("../../../../../src/main.ts");
+
+
+/***/ })
+
+},[0]);
+//# sourceMappingURL=main.bundle.js.map

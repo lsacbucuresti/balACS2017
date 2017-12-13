@@ -1,20 +1,17 @@
-  <nav>
-    <ul>
-      <li>
-          <a routerLink="/login" [hidden]="user.isLogged">Login</a>
-      </li>
-      <li>
-          <a routerLink="/vote" [hidden]="!user.isLogged">Voteaza</a>
-      </li>
-      <li>
-          <a routerLink="/tombole" [hidden]="!user.isLogged">Tombole</a>
-      </li>
-      <li>
-        <a routerLink="/meeting" [hidden]="!user.isLogged">Tinder</a>
-      </li>
-    </ul>
+  <nav class="transparent z-depth-0">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">{{ this.accService.pageTitle }}</a>
+      <a href="#" class="button-collapse" materialize="sideNav" [materializeParams]="[{closeOnClick: true}]" data-activates="nav-mobile" data-sidenav="left" data-menuwidth="500"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="side-nav">
+        <li style="width: 100%; text-align:center;" [hidden]="user.isLogged"><a routerLink="/login">Login</a></li>
+        <li style="width: 100%; text-align:center;" [hidden]="!user.isLogged"><a routerLink="/vote">Voteaza</a></li>
+        <li style="width: 100%; text-align:center;" [hidden]="!user.isLogged"><a routerLink="/tombole">Tombole</a></li>
+        <li style="width: 100%; text-align:center;" [hidden]="!user.isLogged"><a routerLink="/meeting">Tinder</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <router-outlet></router-outlet>
+  <router-outlet>
+  </router-outlet>
 
   
